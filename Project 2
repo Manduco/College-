@@ -1,0 +1,80 @@
+// This Program will get users string check 
+// length and let users check a position in the string
+// will throw an expection if out side of requested string
+// by Armando Zincke 2019/06/2
+
+#include "pch.h"
+#include <iostream>
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+class BCheckString
+{
+    public:
+	string UserString;//member veb dec
+	int StringIndexSize;
+	//int UsersIndexRequestNum;
+
+	//Parametrized Constructor 
+	BCheckString(string s)
+	{
+		UserString = s;
+		StringIndexSize = (UserString.length()) - 1;
+
+		cout << "User input is: " << UserString << "\n";
+		cout<< "legitimate String positions are: 0.." << StringIndexSize << " \n";
+	}// my Constructor 
+
+	char GetsChar(int k){
+		
+		if (k > StringIndexSize || k < 0){
+			cout << "access violation in string \n" ;
+		}
+		else {
+			cout << "The character at position "<< k <<" is "<< UserString[k] << "\n";
+		}
+		return 0;
+	}
+
+
+
+};/* the above class will recive the uisers string
+  and measure it length
+
+  */
+
+int main(){
+
+	string UWord;
+	char again = 'y';
+	int UNum = 0;
+	
+	
+	cout << "this program demostrates bounds checking for a running for my life\string object \n";
+	cout << "Enter a string:";
+	getline(cin, UWord);//gets user input as UWord
+	//string UWord = " xxxxx \n"; for testing
+
+	//uword is passed to the contructors 
+	BCheckString obj1(UWord);
+
+
+	cout << "Enter a integer position inside or out side the string:";//user index request
+	cin>> UNum;
+	obj1.GetsChar(UNum);
+
+
+	cout << "Again? Enter y or n";
+    cin >> again;
+	
+
+	cout << " END \n";
+
+
+	system("Pause");
+	return 0;
+}
+
